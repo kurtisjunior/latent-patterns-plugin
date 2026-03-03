@@ -13,8 +13,8 @@
 
   /* Typography */
   --font-family: "JetBrains Mono", "Monaco", monospace;
-  --base-font-size: 16px;
-  --line-height: 1.6;
+  --base-font-size: 20px;
+  --line-height: 1.4;
 }
 
 /* Core page styling */
@@ -136,6 +136,8 @@ article h6,
 .prose h5,
 .prose h6 {
   font-family: var(--font-family) !important;
+  font-size: var(--base-font-size) !important;
+  line-height: var(--line-height) !important;
 }
 
 /* Text selections */
@@ -161,25 +163,6 @@ svg {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   :root {
-    --base-font-size: 14px;
-  }
-
-  html,
-  body {
-    font-size: var(--base-font-size) !important;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 1.3em !important;
-  }
-
-  code,
-  pre {
-    font-size: 0.9em !important;
+    --base-font-size: 18px;
   }
 }
