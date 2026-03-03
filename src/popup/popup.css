@@ -1,0 +1,215 @@
+/* Popup Styles - stripped, stable, professional */
+
+:root {
+    --bg: #0f1115;
+    --panel: #151922;
+    --panel-2: #10141c;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.66);
+    --faint: rgba(255, 255, 255, 0.45);
+    --shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+
+    --on: #2e7d32;
+    --off: #d32f2f;
+    --track: rgba(255, 255, 255, 0.14);
+    --thumb: rgba(255, 255, 255, 0.92);
+    --focus: rgba(80, 160, 255, 0.65);
+
+    --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: radial-gradient(120% 120% at 50% 0%, #1a2130 0%, var(--bg) 55%, #0b0d12 100%);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.popup {
+    width: 340px;
+    padding: 12px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px 12px;
+}
+
+.brand {
+    display: flex;
+    gap: 10px;
+    min-width: 0;
+    align-items: center;
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+    border: 1px solid var(--border);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.brand-text { min-width: 0; }
+
+.brand-name {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.brand-site {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.status {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--on);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.18);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.card-quiet {
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: none;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px;
+}
+
+.row-tight { padding: 12px 14px; }
+
+.row-text { min-width: 0; }
+
+.row-title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.row-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.25;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    width: 46px;
+    height: 28px;
+    flex: 0 0 auto;
+}
+
+.switch-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.switch-track {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: var(--track);
+    border: 1px solid var(--border);
+    transition: background 140ms ease, border-color 140ms ease;
+}
+
+.switch-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: var(--thumb);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.35);
+    transition: transform 140ms ease;
+}
+
+.switch-input:checked ~ .switch-track {
+    background: rgba(46, 125, 50, 0.35);
+    border-color: rgba(46, 125, 50, 0.55);
+}
+
+.switch-input:checked ~ .switch-thumb {
+    transform: translateX(18px);
+}
+
+.switch-input:focus-visible ~ .switch-track {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 6px 2px;
+}
+
+.link {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+.link:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}

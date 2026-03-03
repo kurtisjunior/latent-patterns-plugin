@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Settings</title>
+    <link rel="stylesheet" href="../../styles/universal-theme.css">
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="options-container">
+        <!-- Header -->
+        <header class="options-header">
+            <div class="header-content">
+                <h1 class="header-title">Extension Settings</h1>
+                <p class="header-subtitle">Configure your extension preferences</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="options-content">
+            <!-- Global Toggle Section -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">Global Extension Control</h2>
+                </div>
+                <div class="section-body">
+                    <div class="setting-item">
+                        <div class="setting-label-group">
+                            <label for="globalToggle" class="setting-label">Enable Extension Globally</label>
+                            <p class="setting-description">Turn the extension on or off for all websites</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="globalToggle" class="toggle-checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Click-to-Apply Explanation -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">How It Works</h2>
+                </div>
+                <div class="section-body">
+                    <div class="info-box">
+                        <div class="info-icon">ℹ️</div>
+                        <div class="info-content">
+                            <h3 class="info-title">Click-to-Apply Behavior</h3>
+                            <p class="info-text">The extension uses a click-to-apply pattern. When you make changes here or in the popup, they are immediately saved and will take effect on the next page load or when you refresh the current page.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Site Access for Auto-Apply -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">Advanced Settings</h2>
+                </div>
+                <div class="section-body">
+                    <div class="info-box">
+                        <div class="info-icon">🔮</div>
+                        <div class="info-content">
+                            <h3 class="info-title">Auto-Apply Feature (Coming Soon)</h3>
+                            <p class="info-text">In a future update, you'll be able to grant the extension permission for automatic styling on specific sites without needing to click apply. This will provide a seamless experience across your favorite websites.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Keyboard Shortcuts -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">Keyboard Shortcuts</h2>
+                </div>
+                <div class="section-body">
+                    <div class="shortcuts-list">
+                        <div class="shortcut-item">
+                            <div class="shortcut-description">
+                                <p class="shortcut-name">Global Toggle</p>
+                                <p class="shortcut-info">Enable/disable extension for all sites</p>
+                            </div>
+                            <kbd class="shortcut-key">Ctrl+Shift+Y</kbd>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-description">
+                                <p class="shortcut-name">Site Toggle</p>
+                                <p class="shortcut-info">Enable/disable extension for current site</p>
+                            </div>
+                            <kbd class="shortcut-key">Ctrl+Shift+U</kbd>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Site Settings -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">Per-Site Settings</h2>
+                    <p class="section-description">Manage which sites the extension is enabled on</p>
+                </div>
+                <div class="section-body">
+                    <div id="sitesList" class="sites-list">
+                        <div class="no-sites-message">
+                            <p>No sites configured yet. Visit websites to add them here.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reset Button -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">Reset Settings</h2>
+                </div>
+                <div class="section-body">
+                    <p class="reset-description">Reset all settings to their default values. This will re-enable the extension globally and clear all per-site preferences.</p>
+                    <button id="resetButton" class="button button-secondary button-danger">Reset to Defaults</button>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">About</h2>
+                </div>
+                <div class="section-body">
+                    <div class="about-content">
+                        <p class="about-item">
+                            <span class="about-label">Extension Name:</span>
+                            <span class="about-value">Chrome Extension</span>
+                        </p>
+                        <p class="about-item">
+                            <span class="about-label">Version:</span>
+                            <span class="about-value" id="versionNumber">1.0.0</span>
+                        </p>
+                        <p class="about-item">
+                            <span class="about-label">Manifest Version:</span>
+                            <span class="about-value">3</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="options-footer">
+            <p class="footer-text">Settings are automatically saved</p>
+        </footer>
+
+        <!-- Confirmation Dialog -->
+        <div id="confirmDialog" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="modal-title">Reset to Defaults?</h3>
+                <p class="modal-message">This will reset all settings to their default values. This action cannot be undone.</p>
+                <div class="modal-buttons">
+                    <button id="confirmCancel" class="button button-secondary">Cancel</button>
+                    <button id="confirmReset" class="button button-danger">Reset</button>
+                </div>
+            </div>
+            <div id="modalOverlay" class="modal-overlay"></div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast hidden">
+            <span id="toastMessage">Settings saved</span>
+        </div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

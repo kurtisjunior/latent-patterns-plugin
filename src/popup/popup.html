@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Popup</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup">
+        <header class="header">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">LP</div>
+                <div class="brand-text">
+                    <div class="brand-name">Latent Patterns</div>
+                    <div class="brand-site" id="siteName">Loading...</div>
+                </div>
+            </div>
+
+            <div class="status" id="extensionStatus" aria-live="polite">On</div>
+            <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+        </header>
+
+        <main class="content">
+            <section class="card">
+                <div class="row">
+                    <div class="row-text">
+                        <div class="row-title">This site</div>
+                        <div class="row-subtitle" id="toggleStatus">On</div>
+                    </div>
+
+                    <label class="switch" aria-label="Toggle for this site">
+                        <input type="checkbox" id="siteToggle" class="switch-input">
+                        <span class="switch-track" aria-hidden="true"></span>
+                        <span class="switch-thumb" aria-hidden="true"></span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="card card-quiet">
+                <div class="row row-tight">
+                    <div class="row-text">
+                        <div class="row-title">Shortcuts</div>
+                        <div class="row-subtitle">Global `Ctrl+Shift+Y`  Site `Ctrl+Shift+U`</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <a href="#" id="settingsLink" class="link">Settings</a>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
